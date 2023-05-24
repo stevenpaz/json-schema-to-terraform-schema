@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+  lint:
+    cmds:
+      - golangci-lint run
+  
+  format:
+    cmds:
+      - gofumpt -w .
