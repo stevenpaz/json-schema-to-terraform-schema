@@ -1,2 +1,2 @@
-# json-schema-to-terraform-schema
-Generates Terraform Schema structs from a JSON Schema
+# tf-schema-gen
+Generates Terraform Schema
