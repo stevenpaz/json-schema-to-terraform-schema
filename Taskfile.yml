@@ -7,4 +7,25 @@ tasks:
   
   format:
     cmds:
-      - gofumpt -w .
+      - gofumpt -l -w .
+
+  build:
+    cmds:
+      - go build -o ./bin/tf-schema-gen
+
+  test:
+    desc: runs go test against go files
+    cmds:
+      - go test -v -coverpkg=./... -coverprofile=coverage.out ./...
+      - go tool cover -func coverage.out
+
+  test-cover-report:
+    desc: 'runs tests and shows coverage report'
+    cmds:
+      - task: test
+      - go tool cover -html=coverage.out
+
+  run:
+    cmds:
+      - task: build
+      - ./bin/tf-schema-gen
